@@ -34,17 +34,17 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        typescript: {
-            base: {
-                src: ['src/*.ts'],
-                dest: 'dist',
-                options: {
-                    strict: true,
-                    sourceMap: true,
-                    declarations: true,
-                    module: 'es6',
-                    target: 'es5'
-                },
+        ts: {
+            options: {
+                target: 'es5',
+                sourceMap: false,
+                declarations: false,
+                fast: 'never',
+                additionalFlags: '--strict'
+            },
+            dev: {
+                src: ["src/*.ts"],
+                out: 'dist/out.js'
             }
         },
         watch: {
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: 'src/*.ts',
-                tasks: ['typescript']
+                tasks: ['ts']
             }
         },
         livereloadx: {
@@ -70,9 +70,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-pug');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('livereloadx');
 
     grunt.registerTask('default', ['livereloadx', 'watch']);
-    grunt.registerTask('build', ['pug', 'sass', 'typescript']);
+    grunt.registerTask('build', ['pug', 'sass', 'ts']);
 };

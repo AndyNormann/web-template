@@ -1,0 +1,14 @@
+{
+  "name": "web-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-typescript": "^0.8.0",
+    "livereloadx": "^0.3.9"
+  }
+}
